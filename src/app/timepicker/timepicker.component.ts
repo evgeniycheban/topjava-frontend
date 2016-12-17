@@ -34,6 +34,7 @@ export class TimepickerComponent implements OnInit {
     document.addEventListener('click', event => {
       if (!this.isIncludesInEventPath(event)) {
         this.close();
+        this.changeTimeModel();
       }
     });
   }
