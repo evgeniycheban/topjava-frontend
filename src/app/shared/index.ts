@@ -1,0 +1,10 @@
+export { Meal } from "./meal/meal";
+export { MealExceed } from "./meal/meal-exceed";
+export { MealService } from "./meal/meal.service";
+export { MealConverterService } from "./meal/meal-converter.service"
+export { MealExceedConverterService } from "./meal/meal-exceed-converter.service";
+export { ConverterService } from './converter/converter.service';
+export { AuthenticationService } from './auth/auth.service';
+export { AuthorizedUserConverterService } from './auth/auth-user-converter.service';
+export { UserSessionService } from './auth/auth-user-session.service';
+export { AuthenticationGuardService } from './auth/auth-guard.service';
