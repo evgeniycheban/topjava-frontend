@@ -24,7 +24,7 @@
     "@types/lodash": "^4.14.43",
     "@types/moment": "^2.13.0",
     "angular2-jwt": "^0.1.26",
-    "bootstrap": "^3.3.7",
+    "bootstrap-sass": "^3.3.7",
     "core-js": "^2.4.1",
     "gulp": "^3.9.1",
     "gulp-jade": "^1.1.0",
