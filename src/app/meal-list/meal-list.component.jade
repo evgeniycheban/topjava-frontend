@@ -1,0 +1,52 @@
+app-navbar
+
+div.jumbotron
+  div.container
+    div.shadow
+      h3 Meals list
+
+      div.view-box
+        form.form-horizontal((ngSubmit)="refreshFilteredMeals()")
+          div.form-group
+            label.control-label.col-sm-2 From Date:
+
+            div.col-sm-2
+              app-datepicker([(dateModel)]="startDate")
+
+            label.control-label.col-sm-2 To Date:
+
+            div.col-sm-2
+              app-datepicker([(dateModel)]="endDate")
+
+          div.form-group
+            label.control-label.col-sm-2 From Time:
+
+            div.col-sm-2
+              app-timepicker([(timeModel)]="startTime")
+
+            label.control-label.col-sm-2 To Time:
+
+            div.col-sm-2
+              app-timepicker([(timeModel)]="endTime")
+
+          div.form-group
+            div.col-sm-8
+              button.btn.btn-primary.pull-right(type="submit") Filter
+        a.btn.btn-sm.btn-info Add meal
+        table.table.table-striped.display
+          thead
+            tr
+              th Date
+              th Description
+              th Calories
+              th
+              th
+          tbody
+            tr(*ngFor="let meal of meals")
+              td {{ meal.dateTime | dateTimeFormat}}
+              td {{ meal.description }}
+              td {{ meal.calories }}
+              td
+                button.btn.btn-xs.btn-primary Edit
+              td
+                button.btn.btn-xs.btn-danger Delete

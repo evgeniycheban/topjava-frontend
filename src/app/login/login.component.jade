@@ -1,0 +1,14 @@
+nav.navbar.navbar-inverse.navbar-fixed-top
+  div.container
+    div.navbar-header.navbar-brand Calories management
+    div.navbar-collapse.collapse
+      form.navbar-form.navbar-right((ngSubmit)="submit()")
+        div.form-group
+          input.form-control(type="text", placeholder="Email", name="username", [(ngModel)]="username")
+          |&nbsp;
+        div.form-group
+          input.form-control(type="password", placeholder="Password", name="password", [(ngModel)]="password")
+          |&nbsp;
+        button.btn.btn-success(type="submit") Login
+
+div.jumbotron

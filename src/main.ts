@@ -9,4 +9,12 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+platformBrowserDynamic([
+  { provide: 'backendPath', useValue: environment.backendPath },
+  { provide: 'backendDateFormat', useValue: 'YYYY-MM-DD' },
+  { provide: 'backendTimeFormat', useValue: 'HH:mm' },
+  { provide: 'backendDateTimeFormat', useValue: 'YYYY-MM-DD HH:mm:SS' },
+  { provide: 'defaultDateFormat', useValue: 'DD.MM.YYYY' },
+  { provide: 'defaultTimeFormat', useValue: 'hh:mm A' },
+  { provide: 'defaultDateTimeFormat', useValue: 'DD.MM.YYYY hh:mm A' }
+]).bootstrapModule(AppModule);
