@@ -20,7 +20,7 @@ export class MealService {
               private mealConverterService: MealConverterService,
               private mealExceedConverterService: MealExceedConverterService,
               @Inject('backendPath') backendPath: string) {
-    this.baseUrl = `${backendPath}/rest/profile/meals`;
+    this.baseUrl = `${backendPath}/profile/meals`;
   }
 
   getAll(startDate: Moment, startTime: Moment,
@@ -73,13 +73,15 @@ export class MealService {
   }
 
   save(meal: Meal): Observable<Meal> {
-    return this.authHttp.post(this.baseUrl, meal)
+    const serializedMeal = this.mealConverterService.serialize(meal);
+    return this.authHttp.post(this.baseUrl, serializedMeal)
       .map((response: Response) => response.json())
       .map((rawMeal: any) => this.mealConverterService.deserialize(rawMeal));
   }
 
   update(meal: Meal, id: number): Observable<Response> {
-    return this.authHttp.put(`${this.baseUrl}/${id}`, meal);
+    const serializedMeal = this.mealConverterService.serialize(meal);
+    return this.authHttp.put(`${this.baseUrl}/${id}`, serializedMeal);
   }
 
   delete(id: number): Observable<Response> {

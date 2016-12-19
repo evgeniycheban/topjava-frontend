@@ -32,7 +32,7 @@ export class TimepickerComponent implements OnInit {
 
   ngOnInit() {
     document.addEventListener('click', event => {
-      if (!this.isIncludesInEventPath(event)) {
+      if (!this.isIncludesInEventPath(event) && this.showPopup) {
         this.close();
         this.changeTimeModel();
       }

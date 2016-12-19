@@ -4,14 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { AUTH_PROVIDERS, JwtHelper, AuthHttp } from 'angular2-jwt';
-import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { Ng2BootstrapModule, ComponentsHelper } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login';
 import { NavbarComponent } from './navbar';
 import { DatepickerComponent } from './datepicker';
 import { TimepickerComponent } from './timepicker';
+import { DateTimePickerComponent } from './datetimepicker';
 import { DateFormatPipe, TimeFormatPipe, DateTimeFormatPipe } from './pipes';
+import { MealModalComponent } from './meal-modal';
 import { MealListComponent } from './meal-list';
 
 import { routes } from './routes';
@@ -31,10 +33,12 @@ import {
   declarations: [
     AppComponent,
     LoginComponent,
+    MealModalComponent,
     MealListComponent,
     NavbarComponent,
     DatepickerComponent,
     TimepickerComponent,
+    DateTimePickerComponent,
     DateFormatPipe,
     TimeFormatPipe,
     DateTimeFormatPipe
@@ -50,6 +54,7 @@ import {
     JwtHelper,
     AuthHttp,
     AUTH_PROVIDERS,
+    ComponentsHelper,
     AuthenticationService,
     AuthorizedUserConverterService,
     AuthenticationGuardService,

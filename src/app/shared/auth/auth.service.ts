@@ -15,7 +15,7 @@ export class AuthenticationService {
               private authHttp: AuthHttp,
               private userSessionService: UserSessionService,
               @Inject('backendPath') private backendPath: string) {
-    this.baseUrl = backendPath + '/rest/authentication';
+    this.baseUrl = backendPath + '/authentication';
   }
 
   login(username: string, password: string): Observable<AuthorizedUser> {

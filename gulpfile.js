@@ -4,9 +4,10 @@ const jade = require('gulp-jade');
 const jadePaths = [
   'src/app/datepicker/*.jade',
   'src/app/timepicker/*.jade',
+  'src/app/datetimepicker/*.jade',
   'src/app/login/*.jade',
   'src/app/navbar/*.jade',
-  'src/app/meal/*.jade',
+  'src/app/meal-modal/*.jade',
   'src/app/meal-list/*.jade'
 ];
 
