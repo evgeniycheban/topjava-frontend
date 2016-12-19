@@ -1,0 +1,26 @@
+div.modal.fade(bsModal, #mealModal="bs-modal")
+  div.modal-dialog
+    div.modal-content
+      div.modal-header
+        button.close(type="button", data-dismiss="modal", aria-hidden="true", (click)="hideModal()") &times;
+        h2.modal-title {{ meal.id ? 'Edit meal' : 'Add meal' }}
+      div.modal-body
+        form.form-horizontal((ngSubmit)="submit()")
+          div.form-group
+            label.control-label.col-xs-3(for="dateTime") Date
+
+            div.col-xs-9
+              app-datetimepicker#dateTime([(dateTimeModel)]="meal.dateTime")
+          div.form-group
+            label.control-label.col-xs-3(for="description") Description
+
+            div.col-xs-9
+              input#description.form-control([(ngModel)]="meal.description", name="description", type="text", placeholder="Description")
+          div.form-group
+            label.control-label.col-xs-3 Calories
+
+            div.col-xs-9
+              input#calories.form-control([(ngModel)]="meal.calories", name="calories", type="number", placeholder="Calories")
+          div.form-group
+            div.col-xs-offset-3.col-xs-9
+              button.btn.btn-primary(type="submit") Save

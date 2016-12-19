@@ -13,7 +13,7 @@ platformBrowserDynamic([
   { provide: 'backendPath', useValue: environment.backendPath },
   { provide: 'backendDateFormat', useValue: 'YYYY-MM-DD' },
   { provide: 'backendTimeFormat', useValue: 'HH:mm' },
-  { provide: 'backendDateTimeFormat', useValue: 'YYYY-MM-DD HH:mm:SS' },
+  { provide: 'backendDateTimeFormat', useValue: 'YYYY-MM-DDTHH:mm' },
   { provide: 'defaultDateFormat', useValue: 'DD.MM.YYYY' },
   { provide: 'defaultTimeFormat', useValue: 'hh:mm A' },
   { provide: 'defaultDateTimeFormat', useValue: 'DD.MM.YYYY hh:mm A' }

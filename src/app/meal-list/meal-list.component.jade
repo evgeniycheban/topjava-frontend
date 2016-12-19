@@ -32,7 +32,7 @@ div.jumbotron
           div.form-group
             div.col-sm-8
               button.btn.btn-primary.pull-right(type="submit") Filter
-        a.btn.btn-sm.btn-info Add meal
+        button.btn.btn-sm.btn-info((click)="mealModal.showAddModal()") Add meal
         table.table.table-striped.display
           thead
             tr
@@ -42,11 +42,13 @@ div.jumbotron
               th
               th
           tbody
-            tr(*ngFor="let meal of meals")
+            tr(*ngFor="let meal of meals", [ngClass]="meal.exceed ? 'exceeded' : 'normal'")
               td {{ meal.dateTime | dateTimeFormat}}
               td {{ meal.description }}
               td {{ meal.calories }}
               td
-                button.btn.btn-xs.btn-primary Edit
+                button.btn.btn-xs.btn-primary((click)="mealModal.showEditModal(meal.id)") Edit
               td
-                button.btn.btn-xs.btn-danger Delete
+                button.btn.btn-xs.btn-danger((click)="delete(meal.id)") Delete
+
+app-meal-modal(#mealModal="mealModal")

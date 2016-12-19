@@ -4,8 +4,4 @@ div.navbar.navbar-inverse.navbar-fixed-top
 
     div.navbar-collapse.collapse
       form.navbar-form.navbar-right(*ngIf="authorizedUser", (ngSubmit)="logout()")
-        a.btn.btn-info(*ngIf="authorizedUser.isAdmin()", [routerLink]="['users']") User list
-        |&nbsp;
-        a.btn.btn-info([routerLink]="['profiles', authorizedUser.email]") {{ authorizedUser.name }} profile
-        |&nbsp;
         button.btn.btn-primary(type="submit") Logout
