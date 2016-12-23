@@ -1,11 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { Http, HttpModule, RequestOptions } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { AUTH_PROVIDERS, JwtHelper, AuthHttp } from 'angular2-jwt';
-import { Ng2BootstrapModule, ComponentsHelper } from 'ng2-bootstrap/ng2-bootstrap';
+import { JwtHelper, AuthHttp, AuthConfig } from 'angular2-jwt';
+import { Ng2BootstrapModule } from 'ng2-bootstrap';
+import { ComponentLoaderFactory } from 'ng2-bootstrap/component-loader';
+import { PositioningService } from 'ng2-bootstrap/positioning';
+import { DatepickerConfig } from 'ng2-bootstrap/datepicker';
+import { TimepickerConfig } from 'ng2-bootstrap/timepicker';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login';
@@ -30,6 +34,11 @@ import {
   MealExceedConverterService,
 } from './shared';
 
+//fixme workaround custom AUTH_PROVIDERS
+export function AuthHttpFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig(), http, options);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,9 +62,11 @@ import {
   ],
   providers: [
     JwtHelper,
-    AuthHttp,
-    AUTH_PROVIDERS,
-    ComponentsHelper,
+    { provide: AuthHttp, deps: [Http, RequestOptions], useFactory: AuthHttpFactory },
+    ComponentLoaderFactory,
+    PositioningService,
+    DatepickerConfig,
+    TimepickerConfig,
     AuthenticationService,
     AuthorizedUserConverterService,
     AuthenticationGuardService,
