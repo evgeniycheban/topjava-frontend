@@ -2,6 +2,7 @@
 
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/72ae57271da443b2a16acc2fef133f67)](https://www.codacy.com/app/mister-cheban/topjava-frontend?utm_source=github.com&utm_medium=referral&utm_content=evgeniycheban/topjava-frontend&utm_campaign=badger)
+[![Build Status](https://travis-ci.org/evgeniycheban/topjava-frontend.svg?branch=master)](https://travis-ci.org/evgeniycheban/topjava-frontend)
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.22-1.
 
