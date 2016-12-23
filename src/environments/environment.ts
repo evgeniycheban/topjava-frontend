@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  backendPath: 'http://localhost:8080/topjava/rest'
+  backendPath: 'https://localhost:8443/topjava/rest'
 };

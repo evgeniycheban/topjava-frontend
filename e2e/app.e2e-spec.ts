@@ -7,8 +7,8 @@ describe('topjava-frontend App', function() {
     page = new TopjavaFrontendPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display app name', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getNavbarBrandText()).toEqual('Calories management');
   });
 });

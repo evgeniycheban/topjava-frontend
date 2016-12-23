@@ -5,7 +5,7 @@ export class TopjavaFrontendPage {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getNavbarBrandText() {
+    return element(by.className('navbar-brand')).getText();
   }
 }

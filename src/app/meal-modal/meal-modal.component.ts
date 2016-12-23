@@ -8,7 +8,7 @@ import {
 
 import { Meal } from '../shared/meal/meal';
 import { MealService } from '../shared/meal/meal.service';
-import { ModalDirective } from 'ng2-bootstrap/ng2-bootstrap';
+import { ModalDirective } from 'ng2-bootstrap';
 import { MealListComponent } from '../meal-list/meal-list.component';
 import { DateTimePickerComponent } from '../datetimepicker/datetimepicker.component';
 import * as _ from 'lodash';
