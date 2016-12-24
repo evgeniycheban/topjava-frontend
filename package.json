@@ -5,11 +5,13 @@
   "angular-cli": {},
   "scripts": {
     "start-dev": "gulp compile-jade && ng serve",
-    "start": "npm install -g angular-cli && npm install -g http-server && gulp compile-jade && ng build -prod && http-server dist/",
+    "start": "http-server dist/",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test --watch=false",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "e2e": "protractor",
+    "preinstall": "npm install -g http-server",
+    "postinstall": "gulp compile-jade && ng build -prod"
   },
   "private": true,
   "dependencies": {
@@ -38,9 +40,7 @@
     "rxjs": "5.0.1",
     "toastr": "2.1.2",
     "ts-helpers": "1.1.2",
-    "zone.js": "0.7.4"
-  },
-  "devDependencies": {
+    "zone.js": "0.7.4",
     "@angular/compiler-cli": "2.4.1",
     "@types/jasmine": "2.5.38",
     "@types/node": "6.0.52",
@@ -58,5 +58,7 @@
     "tslint": "4.1.1",
     "typescript": "2.0.10",
     "webdriver-manager": "11.1.0"
+  },
+  "devDependencies": {
   }
 }
