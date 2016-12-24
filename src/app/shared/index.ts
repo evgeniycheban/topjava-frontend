@@ -4,7 +4,7 @@ export { MealService } from "./meal/meal.service";
 export { MealConverterService } from "./meal/meal-converter.service"
 export { MealExceedConverterService } from "./meal/meal-exceed-converter.service";
 export { ConverterService } from './converter/converter.service';
-export { AuthenticationService } from './auth/auth.service';
-export { AuthorizedUserConverterService } from './auth/auth-user-converter.service';
-export { UserSessionService } from './auth/auth-user-session.service';
-export { AuthenticationGuardService } from './auth/auth-guard.service';
+export { AuthService } from './auth/auth.service';
+export { AuthUserConverterService } from './auth/auth-user-converter.service';
+export { AuthUserSessionService } from './auth/auth-user-session.service';
+export { AuthGuardService } from './auth/auth-guard.service';

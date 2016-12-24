@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { AuthorizedUser } from './auth-user';
-import { AuthorizedUserConverterService } from './auth-user-converter.service';
+import { AuthUser } from './auth-user';
+import { AuthUserConverterService } from './auth-user-converter.service';
 
 @Injectable()
-export class UserSessionService {
-  constructor(private authorizedUserConverterService: AuthorizedUserConverterService) {
+export class AuthUserSessionService {
+  constructor(private authorizedUserConverterService: AuthUserConverterService) {
   }
 
   init(token: string) {
@@ -16,7 +16,7 @@ export class UserSessionService {
     localStorage.clear();
   }
 
-  getAuthorizedUser(): AuthorizedUser {
+  getAuthorizedUser(): AuthUser {
     const token = localStorage.getItem('id_token');
     return this.authorizedUserConverterService.deserialize(token);
   }

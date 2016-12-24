@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthorizedUser } from '../shared/auth/auth-user';
-import { UserSessionService } from '../shared/auth/auth-user-session.service';
-import { AuthenticationService } from '../shared/auth/auth.service';
+import { AuthUser } from '../shared/auth/auth-user';
+import { AuthUserSessionService } from '../shared/auth/auth-user-session.service';
+import { AuthService } from '../shared/auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './../../../tmp/html/navbar.component.html'
 })
 export class NavbarComponent implements OnInit {
-  authorizedUser: AuthorizedUser;
+  authorizedUser: AuthUser;
 
   constructor(private router: Router,
-              private userSessionService: UserSessionService,
-              private authenticationService: AuthenticationService) {
+              private userSessionService: AuthUserSessionService,
+              private authenticationService: AuthService) {
   }
 
   ngOnInit() {
