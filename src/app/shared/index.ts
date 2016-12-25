@@ -1,3 +1,4 @@
+export { UserConverterService } from './user/user-converter.service';
 export { Meal } from "./meal/meal";
 export { MealExceed } from "./meal/meal-exceed";
 export { MealService } from "./meal/meal.service";

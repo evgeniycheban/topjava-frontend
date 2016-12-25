@@ -22,7 +22,7 @@ import { DateFormatPipe } from './pipes/date-format.pipe';
 import { TimeFormatPipe } from './pipes/time-format.pipe';
 import { DateTimeFormatPipe } from './pipes/date-time-format.pipe';
 
-import { AuthHttpFactory } from "./app.module";
+import { AuthHttpFactory } from './app.module';
 import { routes } from './routes';
 
 import {
@@ -31,6 +31,7 @@ import {
   AuthUserConverterService,
   AuthUserSessionService,
   ConverterService,
+  UserConverterService,
   MealService,
   MealConverterService,
   MealExceedConverterService,
@@ -68,6 +69,7 @@ describe('AppComponent', () => {
         AuthGuardService,
         AuthUserSessionService,
         ConverterService,
+        UserConverterService,
         MealService,
         MealConverterService,
         MealExceedConverterService,
