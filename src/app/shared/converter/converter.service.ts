@@ -9,13 +9,20 @@ export class ConverterService {
   constructor(@Inject('backendDateFormat') private backendDateFormat,
               @Inject('backendTimeFormat') private backendTimeFormat,
               @Inject('backendDateTimeFormat') private backendDateTimeFormat: string) {
-    _.bindAll(this, ['serializeDateTime', 'deserializeDateTime']);
   }
 
   serializeDate(date: Moment): string {
     return _.isNil(date)
       ? null
       : moment(date).format(this.backendDateFormat);
+  }
+
+  deserializeDate(rawDate: string): Moment {
+    return this.deserialize(rawDate, this.backendDateFormat);
+  }
+
+  deserializeTime(rawTime: string): Moment {
+    return this.deserialize(rawTime, this.backendTimeFormat);
   }
 
   serializeTime(time: Moment): string {

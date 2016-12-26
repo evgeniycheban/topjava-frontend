@@ -1,4 +1,6 @@
 import { OnInit, Component } from '@angular/core';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+import { ConverterService } from '../shared/converter/converter.service';
 import { MealExceed } from '../shared/meal/meal-exceed';
 import { MealService } from '../shared/meal/meal.service';
 import { Moment } from 'moment';
@@ -18,7 +20,10 @@ export class MealListComponent implements OnInit {
 
   meals: Array<MealExceed> = [];
 
-  constructor(private mealService: MealService) {
+  constructor(private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private converterService: ConverterService,
+              private mealService: MealService) {
   }
 
   ngOnInit() {
@@ -26,11 +31,18 @@ export class MealListComponent implements OnInit {
   }
 
   refreshFilteredMeals() {
-    this.mealService.getAll(
-      this.startDate, this.startTime,
-      this.endDate, this.endTime
-    ).subscribe((meals: Array<MealExceed>) => {
-      this.meals = meals;
+    this.activatedRoute.queryParams.subscribe((params: Params) => {
+      this.startDate = this.converterService.deserializeDate(params['startDate']);
+      this.startTime = this.converterService.deserializeTime(params['startTime']);
+      this.endDate = this.converterService.deserializeDate(params['endDate']);
+      this.endTime = this.converterService.deserializeTime(params['endTime']);
+
+      this.mealService.getAll(
+        this.startDate, this.startTime,
+        this.endDate, this.endTime
+      ).subscribe((meals: Array<MealExceed>) => {
+        this.meals = meals;
+      });
     });
   }
 
@@ -40,5 +52,16 @@ export class MealListComponent implements OnInit {
         this.refreshFilteredMeals();
         toastr.success('Deleted');
       });
+  }
+
+  submit() {
+    this.router.navigate(['meals'], {
+      queryParams: {
+        startDate: this.converterService.serializeDate(this.startDate),
+        startTime: this.converterService.serializeTime(this.startTime),
+        endDate: this.converterService.serializeDate(this.endDate),
+        endTime: this.converterService.serializeTime(this.endTime)
+      }
+    });
   }
 }
